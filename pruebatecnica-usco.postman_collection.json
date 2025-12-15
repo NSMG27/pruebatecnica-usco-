@@ -1,0 +1,406 @@
+{
+	"info": {
+		"_postman_id": "2c607b37-e2ba-463e-9560-72749f12f053",
+		"name": "pruebatecnica-usco",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50804121",
+		"_collection_link": "https://nicolas-mosquerago-3987240.postman.co/workspace/Nicol%C3%A1s-Mosquera's-Workspace~715da5eb-3c7e-4791-81d3-72e3d7d5d6dc/collection/50804121-2c607b37-e2ba-463e-9560-72749f12f053?action=share&source=collection_link&creator=50804121"
+	},
+	"item": [
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "registro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Maryoby Gómez\",\r\n  \"email\": \"maryoby.gomez@outlook.com\",\r\n  \"password\": \"Secreta123\",\r\n  \"rol\": \"ADMINISTRATIVE_STAFF\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"maryoby.gomez@outlook.com\",\r\n  \"password\": \"Secreta123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "procedure",
+			"item": [
+				{
+					"name": "registrar tramite",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJ5b2J5LmdvbWV6QG91dGxvb2suY29tIiwicm9sIjoiQURNSU5JU1RSQVRJVkVfU1RBRkYiLCJpYXQiOjE3NjU3ODA5OTcsImV4cCI6MTc2NTg2NzM5N30.5Nr7dZQCCG9NZpgfW4iQXTxB-x2cS331L6XMKCulgtM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"procedureTypeId\": 4,\r\n  \"description\": \"'Homologación de asignaturas'\",\r\n  \"documentTypeIds\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tramites",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tramites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "asignar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcm1hbmRvcy5tb3NxdWVyYUBvdXRsb29rLmNvbSIsInJvbCI6IlRFQUNIRVIiLCJpYXQiOjE3NjU3NDczODUsImV4cCI6MTc2NTgzMzc4NX0.iAjiLPxt7zIQaJY1DrGvHKUC2PA2OL756fh8a6CON_w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userServantId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tramites/4/asignar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tramites",
+								"4",
+								"asignar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cambio de estado",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJ5b2J5LmdvbWV6QG91dGxvb2suY29tIiwicm9sIjoiQURNSU5JU1RSQVRJVkVfU1RBRkYiLCJpYXQiOjE3NjU3NjAzNzQsImV4cCI6MTc2NTg0Njc3NH0.ZZ0K4bKfsNc0xE69wAQj1ToBSJVn2hhf2uqAwLolA_c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"state\": \"IN_PROGRESS\",\r\n  \"servantId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tramites/4/estado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tramites",
+								"4",
+								"estado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar radicados por funcionario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJ5b2J5LmdvbWV6QG91dGxvb2suY29tIiwicm9sIjoiQURNSU5JU1RSQVRJVkVfU1RBRkYiLCJpYXQiOjE3NjU3NjAzNzQsImV4cCI6MTc2NTg0Njc3NH0.ZZ0K4bKfsNc0xE69wAQj1ToBSJVn2hhf2uqAwLolA_c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tramites/funcionario/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tramites",
+								"funcionario",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "filingprocedures",
+			"item": [
+				{
+					"name": "adjuntar archivos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJ5b2J5LmdvbWV6QG91dGxvb2suY29tIiwicm9sIjoiQURNSU5JU1RSQVRJVkVfU1RBRkYiLCJpYXQiOjE3NjU3NjAzNzQsImV4cCI6MTc2NTg0Njc3NH0.ZZ0K4bKfsNc0xE69wAQj1ToBSJVn2hhf2uqAwLolA_c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"url\": \"https://drive.google.com/file/abc123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tramites/4/archivos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tramites",
+								"4",
+								"archivos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar adjuntos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJ5b2J5LmdvbWV6QG91dGxvb2suY29tIiwicm9sIjoiQURNSU5JU1RSQVRJVkVfU1RBRkYiLCJpYXQiOjE3NjU3NjAzNzQsImV4cCI6MTc2NTg0Njc3NH0.ZZ0K4bKfsNc0xE69wAQj1ToBSJVn2hhf2uqAwLolA_c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tramites/4/archivos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tramites",
+								"4",
+								"archivos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "commentsandfollowupontheprocess",
+			"item": [
+				{
+					"name": "listar seguimiento",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJ5b2J5LmdvbWV6QG91dGxvb2suY29tIiwicm9sIjoiQURNSU5JU1RSQVRJVkVfU1RBRkYiLCJpYXQiOjE3NjU3NjAzNzQsImV4cCI6MTc2NTg0Njc3NH0.ZZ0K4bKfsNc0xE69wAQj1ToBSJVn2hhf2uqAwLolA_c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tramites/1/seguimiento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tramites",
+								"1",
+								"seguimiento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear seguimiento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJ5b2J5LmdvbWV6QG91dGxvb2suY29tIiwicm9sIjoiQURNSU5JU1RSQVRJVkVfU1RBRkYiLCJpYXQiOjE3NjU3NjAzNzQsImV4cCI6MTc2NTg0Njc3NH0.ZZ0K4bKfsNc0xE69wAQj1ToBSJVn2hhf2uqAwLolA_c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"comment\": \"El funcionario revisó los documentos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tramites/1/seguimiento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tramites",
+								"1",
+								"seguimiento"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
