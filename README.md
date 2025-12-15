@@ -132,7 +132,7 @@ http://localhost:4200
 Archivo `.env`
 
 ```env
-VITE_API_URL=http://localhost:8080/api
+apiUrl = http://localhost:8080
 ```
 
 ---
